@@ -104,8 +104,9 @@ function adjustCardSize() {
     });
 }
 window.addEventListener('resize', adjustCardSize);
+
 function createCard(image) {
-    console.log('Criando carta com a imagem:', image); // Verifique o nome da imagem que está sendo passado
+    console.log('Criando carta com a imagem:', image);
 
     const card = document.createElement('div');
     card.classList.add('memory-card');
@@ -160,6 +161,9 @@ function flipCard() {
 function checkForMatch() {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
         disableCards();
+        if (document.querySelectorAll('.memory-card:not(.flip)').length === 0) {
+            celebrateVictory(); // Celebra a vitória quando todas as cartas forem combinadas
+        }
         return;
     }
 
@@ -189,4 +193,36 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
+// Função para mostrar confetes na tela
+function celebrateVictory() {
+    confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+// Função para mostrar confetes na tela
+function celebrateVictory() {
+    // Configura o confete
+    confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
+// Adicione a função de celebração no final do jogo, quando o usuário vencer
+function checkForMatch() {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+        disableCards();
+        if (document.querySelectorAll('.memory-card:not(.flip)').length === 0) {
+            celebrateVictory(); // Celebra a vitória quando todas as cartas forem combinadas
+        }
+        return;
+    }
+
+    unflipCards();
+}
+
 setupOptions(); // Initial setup for options
+
