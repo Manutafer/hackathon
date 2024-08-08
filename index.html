@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Jogo de Memória</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form>
-        <div>
-            <div><label>Login</label></div>
-            <input type="login" name="login" placeholder="Ex: nome123">
+    <div class="container">
+        <div id="questionnaire" class="questionnaire">
+            <h2>Como está o dia hoje?</h2>
+            <button class="option" data-answer="sunny">Ensolarado</button>
+            <button class="option" data-answer="rainy">Chuvoso</button>
+            <button class="option" data-answer="cloudy">Nublado</button>
         </div>
-        <div>
-            <div><label>Senha</label></div>
-            <input type="password" name="senha" placeholder="Senha">
-        </div>
-        <div>
-            <button type="button" class="clear"></button>
-        </div>
-        <div>
-            <button type="button" class="solid">Entrar</button>
-        </div>
-        <div>
-            <button type="button" class="outline">Registrar</button>
-        </div>
-    </form>
+        
+        <div id="memory-game" class="memory-game hidden"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<link rel="stylesheet" href="style.css">
 </html>
