@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.questionnaire, .memory-game {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.memory-game {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinha as cartas no centro */
+    align-items: center;     /* Alinha as cartas verticalmente no centro */
+    width: 100%;             /* Garante que o contêiner ocupe toda a largura disponível */
+    height: auto;            /* Ajusta a altura conforme necessário */
+    max-height: 80vh;        /* Define a altura máxima para não exceder a tela */
+}
+
+.memory-card {
+    width: 150px;   /* Tamanho fixo das cartas */
+    height: 150px;  /* Tamanho fixo das cartas */
+    margin: 5px;    /* Espaçamento entre as cartas */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+button.option {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
